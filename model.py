@@ -84,7 +84,7 @@ class Dosen(DB):
         return None
 
 
-    def daftar_siswa(self):
+    def ambil_data_siswa(self):
         # Deklarasi variable lokal
         cursor = self.cursor
         query = "SELECT * FROM siswa WHERE id_dosen = %s"

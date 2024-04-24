@@ -48,7 +48,7 @@ class Main:
     def daftar_siswa(self):
         print("\n-- DAFTAR SISWA --\n")
 
-        data_siswa = self.model_dosen.daftar_siswa()
+        data_siswa = self.model_dosen.ambil_data_siswa()
         for i, per_data in enumerate(data_siswa):
             print("{:2}. {}".format((i + 1), per_data["nama_siswa"]))
 
@@ -57,6 +57,7 @@ class Main:
             "[1] untuk menambah data",
             "[2] untuk mengubah data",
             "[3] untuk menghapus data",
+            "[4] untuk keluar",
             sep="\n",
         )
         pilihan = int(input("> "))
@@ -67,6 +68,8 @@ class Main:
                 return self.seleksi(data_siswa, True)
             case 3:
                 return self.seleksi(data_siswa, False)
+            case 3:
+                return
             case _:
                 print("\nPilihan tidak ada!")
                 return self.daftar_siswa()
@@ -88,16 +91,16 @@ class Main:
             return self.seleksi(data_siswa, mode_udate)
 
         # mengambil id dari data yang dipilih
-        id_siswa_terpilih = data_siswa[(nomer_urut - 1)]["id_siswa"]
+        id_terpilih = data_siswa[(nomer_urut - 1)]["id_siswa"]
 
         # Membuat keputusan apakah untuk update atau delete
         if mode_udate is True:
             nama_siswa = input("Masukkan nama baru: ")
-            self.model_dosen.ubah_data_siswa(id_siswa_terpilih, nama_siswa)
+            self.model_dosen.ubah_data_siswa(id_terpilih, nama_siswa)
             print("data berhasil diubah!")
             
         else:
-            self.model_dosen.hapus_data_siswa(id_siswa_terpilih)
+            self.model_dosen.hapus_data_siswa(id_terpilih)
             print("data berhasil dihapus!")
 
         return self.daftar_siswa()
