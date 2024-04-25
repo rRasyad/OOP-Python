@@ -57,7 +57,7 @@ class Main:
             "[1] untuk menambah data",
             "[2] untuk mengubah data",
             "[3] untuk menghapus data",
-            "[4] untuk keluar",
+            "[4] untuk logout",
             sep="\n",
         )
         pilihan = int(input("> "))
@@ -68,7 +68,7 @@ class Main:
                 return self.seleksi(data_siswa, True)
             case 3:
                 return self.seleksi(data_siswa, False)
-            case 3:
+            case 4:
                 return
             case _:
                 print("\nPilihan tidak ada!")

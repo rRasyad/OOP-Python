@@ -91,12 +91,12 @@ class Dosen(DB):
 
         cursor.execute(query, (self.id_dosen,))
         data_raw = cursor.fetchall()
-        # print("Contoh data mentahnya:", data_raw) # Debug
+        print("Contoh data mentahnya:", data_raw) # Debug
 
         hasil = []
         for per_data in data_raw:
             hasil.append({"id_siswa": per_data[0], "nama_siswa": per_data[2]})
-        # print("Setelah di ubah:", hasil) # Debug
+        print("Setelah di ubah:", hasil) # Debug
         return hasil
 
 
